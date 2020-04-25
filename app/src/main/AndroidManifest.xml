@@ -41,16 +41,12 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".riderMapsActivity"
-            android:label="@string/title_activity_rider_maps"></activity>
         <activity android:name="com.example.VEXT.delActivity" />
 
         <uses-library android:name="com.google.android.maps" />
 
         <activity android:name="com.example.VEXT.registerActivity" />
         <activity android:name="com.example.VEXT.Eatery" />
-        <activity android:name="com.example.VEXT.MapsActivity" />
         <activity android:name="com.example.VEXT.order_details" />
         <activity android:name="com.example.VEXT.OrderConfirm" />
         <activity android:name="com.example.VEXT.MainActivity">
