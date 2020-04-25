@@ -1,4 +1,4 @@
-package com.example.yummpies;
+package com.example.VEXT;
 
 import android.content.Context;
 
@@ -23,7 +23,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
 
 
-    private List name, prices, images;
+    private List name, prices;
     private Context context;
 
     private OnItemClickListener mListener;
@@ -44,12 +44,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
 
-    public MyAdapter(Context ct, List name, List prices, List image_url)
+    public MyAdapter(Context ct, List name, List prices)
     {
         this.name = name;
         this.prices = prices;
         this.context = ct;
-        this.images = image_url;
 
     }
 
@@ -66,13 +65,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.mytext1.setText(name.get(position).toString());
         holder.mytext2.setText("Price : ");
         holder.mytext2.append(String.valueOf(prices.get(position)));
-        if(images.get(position)!=null)
-        {
-            Glide.with(context)
-                    .load(Uri.parse(images.get(position).toString()))
-                    .apply(RequestOptions.circleCropTransform())
-                    .into(holder.imgView);
-        }
+
 
 
 
@@ -88,7 +81,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
         public TextView mytext1, mytext2;
-        public ImageView imgView;
+
         public NumberPicker np;
 
 
@@ -100,7 +93,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             mytext1 = itemView.findViewById(R.id.textView5);
             mytext2 = itemView.findViewById(R.id.textView6);
             np = itemView.findViewById(R.id.number_picker);
-            imgView = itemView.findViewById(R.id.imageView);
+          //  imgView = itemView.findViewById(R.id.imageView);
 
 
             np.setMaxValue(25);

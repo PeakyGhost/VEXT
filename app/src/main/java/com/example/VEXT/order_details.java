@@ -1,4 +1,4 @@
-package com.example.yummpies;
+package com.example.VEXT;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -9,7 +9,6 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -23,9 +22,6 @@ import android.os.Bundle;
 
 import android.os.CancellationSignal;
 import android.telephony.TelephonyManager;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 
 import android.widget.ArrayAdapter;
@@ -35,8 +31,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.login.LoginManager;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -133,63 +127,10 @@ public class order_details extends AppCompatActivity implements Serializable {
 
                             }
 
-                            if(currentLocation!=null)
-                            {
+                            if(currentLocation!=null) {
 
                                 Location.distanceBetween(gp.getLatitude(), gp.getLongitude(), currentLocation.getLatitude(), currentLocation.getLongitude(), dist);
-                                if(dist[0]<10.0*1000 )
-                                {
-                                    if (regular)
-                                    {
-                                        total = total*(0.80);
-                                        tv9.setText("\nNOTE: \nEligible for free delivery! \nInclusive of 20% discount!\n");
-                                    }
-                                    else
-                                    {
-                                        total = total*(1.00);
-                                        tv9.setText("\nNOTE: \nEligible for free delivery!\n");
-                                    }
-
-                                }
-                                else if(dist[0]>10.0*100 && dist[0]<20.0*1000)
-                                {
-                                    if(regular)
-                                    {
-                                        total = total*(0.85);
-                                        tv9.setText("\nNOTE: \n5% added due to large distance between you and the eatery!\nInclusive of 20% discount!\n");
-                                    }
-                                    else
-                                    {
-                                        total = total*(1.05);
-                                        tv9.setText("\nNOTE: \n5% added due to large distance between you and the eatery!\n");}
-                                }
-                                else if(dist[0]>20.0*1000 && dist[0]<30.0*1000)
-                                {
-                                    if (regular)
-                                    {
-                                        total = total*(0.90);
-                                        tv9.setText("\nNOTE: \n10% added due to large distance between you and the eatery!\nInclusive of 20% discount!\n");
-                                    }
-
-                                    else{
-                                        total = total*(1.1);
-                                        tv9.setText("\nNOTE: \n10% added due to large distance between you and the eatery!\n");}
-                                }
-                                else
-                                {
-                                    if (regular)
-                                    {
-                                        total = total*(0.95);
-                                        tv9.setText("\nNOTE: \n15% added due to large distance between you and the eatery!\nInclusive of 20% discount!\n");
-                                    }
-
-                                    else{
-                                        total = total*(1.15);
-                                        tv9.setText("\nNOTE: \n15% added due to large distance between you and the eatery!\n");}
-                                }
-
                             }
-
                             total = Double.parseDouble(String.format("%.3f",total));
                             tv1.append(String.valueOf(total));
 
@@ -215,7 +156,6 @@ public class order_details extends AppCompatActivity implements Serializable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details);
 
-        tv9 = findViewById(R.id.textView44);
 
         final Double lat = getIntent().getExtras().getDouble("eatery_location_latitude");
         final Double lon = getIntent().getExtras().getDouble("eatery_location_longitude");
@@ -279,28 +219,6 @@ public class order_details extends AppCompatActivity implements Serializable {
             @Override
             public void onClick(View v) {
 
-
-
-                Executor executor = Executors.newSingleThreadExecutor();
-
-                BiometricPrompt biometricPrompt = new BiometricPrompt.Builder(order_details.this)
-                        .setTitle("Fingerprint Authentication")
-                        .setSubtitle("Authorize Order")
-                        .setDescription("Your order Total : "+ total)
-                        .setNegativeButton("Cancel", executor, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                            }
-                        }).build();
-                
-
-                biometricPrompt.authenticate(new CancellationSignal(), executor, new BiometricPrompt.AuthenticationCallback() {
-                    @Override
-                    public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
-
-
-
                         order_details.this.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -354,9 +272,7 @@ public class order_details extends AppCompatActivity implements Serializable {
                 });
 
 
-            }
-        });
-    }
+            };
 
     @Override
     public void onBackPressed() {
@@ -364,21 +280,6 @@ public class order_details extends AppCompatActivity implements Serializable {
         this.finish();
     }
 
-    @SuppressLint("MissingPermission")
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case PERMISSION_READ_STATE: {
-                if (grantResults.length >= 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    TelephonyManager tMgr = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
-                    mPhoneNumber = tMgr.getLine1Number();
-                } else {
-                    Toast.makeText(this, "You don't have required permissions to make an action!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
-    }
 
 
     }

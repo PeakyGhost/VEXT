@@ -1,4 +1,4 @@
-package com.example.yummpies;
+package com.example.VEXT;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -156,13 +156,11 @@ public class Eatery extends AppCompatActivity implements Serializable {
                      if ((documentSnapshot.get(ITEM_PRICE).toString())!=null)
 
                      {prices.add(Double.parseDouble(documentSnapshot.get(ITEM_PRICE).toString()));}
-                     if((documentSnapshot.getString("image_url"))!=null)
 
-                     {image_urls.add(documentSnapshot.getString("image_url"));}
 
 
                  }
-                 MyAdapter myAdapter = new MyAdapter(Eatery.this, dishes,  prices, image_urls);
+                 MyAdapter myAdapter = new MyAdapter(Eatery.this, dishes,  prices);
                  recyclerView.setAdapter(myAdapter);
                  recyclerView.setLayoutManager(new LinearLayoutManager(Eatery.this));
 

@@ -1,4 +1,4 @@
-package com.example.yummpies;
+package com.example.VEXT;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
@@ -8,7 +8,6 @@ import com.google.firebase.firestore.ServerTimestamp;
 
 import java.security.SecureRandom;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.yummpies">
+    package="com.example.VEXT">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -44,16 +44,16 @@
         <activity
             android:name=".riderMapsActivity"
             android:label="@string/title_activity_rider_maps"></activity>
-        <activity android:name=".delActivity" />
+        <activity android:name="com.example.VEXT.delActivity" />
 
         <uses-library android:name="com.google.android.maps" />
 
-        <activity android:name=".registerActivity" />
-        <activity android:name=".Eatery" />
-        <activity android:name=".MapsActivity" />
-        <activity android:name=".order_details" />
-        <activity android:name=".OrderConfirm" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.VEXT.registerActivity" />
+        <activity android:name="com.example.VEXT.Eatery" />
+        <activity android:name="com.example.VEXT.MapsActivity" />
+        <activity android:name="com.example.VEXT.order_details" />
+        <activity android:name="com.example.VEXT.OrderConfirm" />
+        <activity android:name="com.example.VEXT.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
