@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         mCreateBtn = findViewById(R.id.createText);
         forgotTextLink = findViewById(R.id.textView3);
         fAuth = FirebaseAuth.getInstance();
-        loginButton = findViewById(R.id.fb);
+        //loginButton = findViewById(R.id.fb);
 
 
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                                     MainActivity.this.startActivity(a);}
                                     else {
                                         user = fAuth.getCurrentUser();
-                                        Intent b = new Intent(MainActivity.this,MapsActivity.class);
+                                        Intent b = new Intent(MainActivity.this, Eatery.class);
                                         b.putExtra("user", user);
                                         MainActivity.this.startActivity(b);
                                     }

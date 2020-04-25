@@ -117,8 +117,8 @@ public class Eatery extends AppCompatActivity implements Serializable {
 
 
 
-        final String pos = getIntent().getExtras().getString("marker");
-        DocumentReference dr = db.collection(MAIN_COLLECTION).document(pos);
+        //final String pos = getIntent().getExtras().getString("marker");
+        DocumentReference dr = db.collection(MAIN_COLLECTION).document("Eatery");
         dr.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {

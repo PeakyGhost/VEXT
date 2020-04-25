@@ -390,13 +390,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             marker_id = hashmap.get(b);
 
 
-            Intent a = new Intent(MapsActivity.this, Eatery.class);
+            //Intent a = new Intent(MapsActivity.this, Eatery.class);
 
-            a.putExtra("user",   user);
+            //a.putExtra("user",   user);
 
-            a.putExtra("marker", marker_id);
+            //a.putExtra("marker", marker_id);
 
-            MapsActivity.this.startActivity(a);
+           // MapsActivity.this.startActivity(a);
         }
 
 
